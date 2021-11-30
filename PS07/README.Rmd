@@ -1,0 +1,31 @@
+---
+title: "Flight Visualization"
+author: "Eva"
+date: "Fall 2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+## Check Out This Plot
+
+This plot shows visually the expectation that **airtime has a direct correlation to distance**. It also shows trends in flight length by airport; for example Newark and JFK have similar flight spreads while LaGuardia flights are noticeably shorter in time and distance. 
+
+```{r, echo=FALSE}
+
+ggplot(data = flights, mapping = aes(x = distance, y = air_time, color = origin))+
+  geom_point(alpha = 0.3)+
+  labs(title = "Air time vs Distance", subtitle = "2013 NYC Flights")+
+  xlab("Distance (miles)")+
+  ylab("Airtime (minutes)")
+```
+
